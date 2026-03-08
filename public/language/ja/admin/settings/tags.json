@@ -1,9 +1,9 @@
 {
     "tag": "タグ設定",
-    "link-to-manage": "Manage Tags",
-    "system-tags": "System Tags",
-    "system-tags-help": "Only privileged users will be able to use these tags.",
-    "tags-per-topic": "Tags per topic",
+    "link-to-manage": "タグを管理",
+    "system-tags": "システムタグ",
+    "system-tags-help": "特権ユーザーのみがこれらのタグを使用できます。",
+    "tags-per-topic": "スレッドあたりのタグ数",
     "min-per-topic": "スレッドごとの最小タグ数",
     "max-per-topic": "スレッドごとの最大タグ数",
     "min-length": "タグの最小文字数",
