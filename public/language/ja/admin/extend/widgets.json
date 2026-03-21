@@ -24,7 +24,7 @@
     "title.placeholder": "タイトル（一部のコンテナでのみ表示）",
     "container": "コンテナ",
     "container.placeholder": "コンテナをドラッグ&ドロップするか、ここにHTMLを入力してください。",
-    "show-to-groups": "表示するグループ:",
+    "show-to-groups": "表示するグループ",
     "hide-from-groups": "非表示にするグループ",
     "start-date": "開始日",
     "end-date": "終了日",
