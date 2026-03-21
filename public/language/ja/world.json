@@ -1,6 +1,8 @@
 {
     "name": "世界",
     "latest": "最新",
+    "latest-local": "Latest (Local)",
+	"latest-all": "Latest (All)",
     "popular-day": "人気（日）",
     "popular-week": "人気（週）",
     "popular-month": "人気（月）",
@@ -21,5 +23,7 @@
     "onboard.why": "このフォーラムの外でも多くのことが行われており、すべてがあなたの興味に関連しているわけではありません。だからこそ、誰かをフォローすることが、その人の投稿をもっと見たいという意思表示の最良の方法です。",
     "onboard.how": "その間、上部のショートカットボタンをクリックして、このフォーラムが他に何を知っているか確認し、新しいコンテンツを発見し始めましょう！",
 
-    "category-search": "カテゴリを検索..."
+    "category-search": "カテゴリを検索...",
+    "see-more": "See more",
+	"see-less": "See less"
 }

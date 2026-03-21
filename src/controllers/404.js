@@ -72,7 +72,6 @@ exports.send404 = helpers.try(async (req, res) => {
 	res.render('404', {
 		path: validator.escape(path),
 		title: '[[global:404.title]]',
-		bodyClass: helpers.buildBodyClass(req, res),
 		icon: error404Icons[Math.floor(Math.random() * error404Icons.length)],
 	});
 });
