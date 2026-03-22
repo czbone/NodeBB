@@ -23,7 +23,7 @@
     "purge": "<strong>ユーザー</strong>と<strong>コンテンツ</strong>を削除",
     "download-csv": "CSVでダウンロード",
     "custom-user-fields": "カスタムユーザーフィールド",
-    "custom-reasons": "カスタム理由",
+    "custom-reasons": "通知文",
     "manage-groups": "グループを管理",
     "set-reputation": "評価を設定",
     "add-group": "グループを追加",
