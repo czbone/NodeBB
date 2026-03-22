@@ -21,7 +21,7 @@
     "text-color": "文字色",
     "bg-image-size": "背景画像サイズ",
     "custom-class": "カスタムクラス",
-    "num-recent-replies": "最近の返信数",
+    "num-recent-replies": "# 最近の返信数",
     "ext-link": "外部リンク",
     "subcategories-per-page": "1ページあたりのサブカテゴリ数",
     "is-section": "このカテゴリをセクションとして扱う",
