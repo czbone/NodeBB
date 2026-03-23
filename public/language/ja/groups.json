@@ -16,9 +16,9 @@
     "invited.none": "招待中のメンバーは現在いません",
     "invited.uninvite": "招待を取り消す",
     "invited.search": "このグループに招待するユーザーを検索",
-    "invited.notification-title": "グループ<strong>%1</strong>への参加招待が届きました",
+    "invited.notification-title": "グループ<strong>%1</strong>に招待されました",
     "request.notification-title": "<strong>%1</strong>からのグループ参加リクエスト",
-    "request.notification-text": "<strong>%1</strong>は、<strong>%2</strong>のメンバーになることをリクエストしています。",
+    "request.notification-text": "<strong>%1</strong>が<strong>%2</strong>への参加をリクエストしています。",
     "cover-save": "保存",
     "cover-saving": "保存しています",
     "details.title": "グループ詳細",
@@ -50,7 +50,7 @@
     "details.hidden": "非表示",
     "details.hidden-help": "有効にすると、このグループはグループ一覧に表示されず、ユーザーは手動で招待される必要があります。",
     "details.delete-group": "グループを削除",
-    "details.private-system-help": "プライベートグループは、システムレベルで無効です。このオプションは何もしません。",
+    "details.private-system-help": "プライベートグループはシステムレベルで無効化されています。このオプションは機能しません。",
     "event.updated": "グループ詳細が更新されました。",
     "event.deleted": "グループ\"%1\"は削除されました。",
     "membership.accept-invitation": "招待を受ける",
@@ -63,6 +63,6 @@
     "new-group.group-name": "グループ名:",
     "upload-group-cover": "グループのカバーをアップロード",
     "bulk-invite-instructions": "このグループに招待するユーザー名をカンマ区切りで入力してください",
-    "bulk-invite": "バルク招待",
+    "bulk-invite": "一括招待",
     "remove-group-cover-confirm": "カバー写真を削除してもよろしいですか？"
 }
