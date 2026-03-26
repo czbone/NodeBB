@@ -43,7 +43,7 @@
     "registration-type.admin-invite-only": "管理者招待のみ",
     "registration-type.disabled": "登録なし",
     "registration-type.help": "標準 - ユーザーは/registerページから登録できます。<br/>\n招待のみ - ユーザーは<a href=\"%1/users\" target=\"_blank\">users</a>ページから他のユーザーを招待できます。<br/>\n管理者招待のみ - 管理者のみが<a href=\"%1/users\" target=\"_blank\">users</a>と<a href=\"%1/admin/manage/users\">admin/manage/users</a>ページから他のユーザーを招待できます。<br/>\n登録なし - ユーザー登録なし。<br/>",
-    "registration-approval-type.help": "標準 - ユーザーは即座に登録されます。<br/>\n管理者承認 - ユーザー登録は管理者用の<a href=\"%1/admin/manage/registration\">承認キュー</a>に入ります。<br/>\nIPの管理者承認 - 新規ユーザーは標準、既にアカウントがあるIPアドレスは管理者承認。<br/>",
+    "registration-approval-type.help": "標準 - ユーザーは即座に登録されます。<br/>\n管理者承認 - ユーザー登録は管理者用の<a href=\"%1/admin/manage/registration\">承認キュー</a>に入ります。<br/>\nIPの管理者承認 - 新規ユーザーは標準、すでにアカウントがあるIPアドレスは管理者承認。<br/>",
     "registration-queue-auto-approve-time": "自動承認時間",
     "registration-queue-auto-approve-time-help": "ユーザーが自動承認されるまでの時間（時間）。0で無効。",
     "registration-queue-show-average-time": "新規ユーザー承認にかかる平均時間をユーザーに表示",

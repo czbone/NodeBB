@@ -74,7 +74,7 @@
     "bookmark-instructions": "ここをクリックすると、このスレッドの最後に読んでいた投稿へ移動します。",
     "flag-post": "この投稿を報告",
     "flag-user": "このユーザーを報告",
-    "already-flagged": "既に報告済み",
+    "already-flagged": "すでに報告済み",
     "view-flag-report": "フラグレポートを表示",
     "resolve-flag": "フラグを解決",
     "merged-message": "このスレッドは<a href=\"%1\">%2</a>にマージされました",
