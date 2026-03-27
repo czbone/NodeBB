@@ -41,7 +41,7 @@
     "moved-from": "%1から移動",
     "copy-code": "コードをコピー",
     "copy-ip": "IPをコピー",
-    "ban-ip": "IPをBan",
+    "ban-ip": "IPを遮断",
     "view-history": "履歴を編集",
     "wrote-ago": "が投稿 <a href=\"%1\" class=\"timeago text-muted\" title=\"%2\"></a>",
     "wrote-on": "に投稿 <a href=\"%1\" class=\"timeago text-muted\" title=\"%2\"></a>",

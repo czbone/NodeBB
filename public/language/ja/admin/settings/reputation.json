@@ -34,7 +34,7 @@
     "flags.limit-user-flags-per-day-help": "0で無効、（デフォルト: 10）",
     "flags.auto-flag-on-downvote-threshold": "投稿を自動フラグする低評価の数",
     "flags.auto-flag-on-downvote-threshold-help": "0で無効、（デフォルト: 0）",
-    "flags.auto-resolve-on-ban": "ユーザーがBANされたときに、そのユーザーのすべてのチケットを自動的に解決",
+    "flags.auto-resolve-on-ban": "ユーザーが利用停止されたときに、そのユーザーのすべてのチケットを自動的に解決",
     "flags.action-on-resolve": "フラグが解決されたときに実行する操作",
     "flags.action-on-reject": "フラグが拒否されたときに実行する操作",
     "flags.action.nothing": "何もしない",

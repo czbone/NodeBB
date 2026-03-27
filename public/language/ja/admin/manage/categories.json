@@ -68,7 +68,7 @@
     "privileges.section-group": "グループ",
     "privileges.group-private": "このグループは非公開です",
     "privileges.inheritance-exception": "このグループは registered-users グループから権限を継承しません",
-    "privileges.banned-user-inheritance": "BANユーザーは banned-users グループから権限を継承します",
+    "privileges.banned-user-inheritance": "利用停止中のユーザーは banned-users グループから権限を継承します",
     "privileges.search-group": "グループを追加",
     "privileges.copy-to-children": "子カテゴリにコピー",
     "privileges.copy-from-category": "カテゴリからコピー",

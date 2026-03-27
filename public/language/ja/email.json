@@ -53,9 +53,9 @@
     "unsub.success": "<strong>%1</strong>のメーリングリストからのメールは届かなくなります",
     "unsub.failure.title": "配信停止できませんでした",
     "unsub.failure.message": "リンクに問題があったため、メーリングリストの配信を停止できませんでした。ただし、<a href=\"%2\">ユーザー設定</a>でメール設定を変更できます。<br /><br />（エラー: <code>%1</code>）",
-    "banned.subject": "%1さんからBANされました。",
-    "banned.text1": "%1さんは%2さんにBANされています。",
-    "banned.text2": "このBANは%1まで続きます。",
-    "banned.text3": "あなたがBANされた理由:",
+    "banned.subject": "%1で利用停止されました。",
+    "banned.text1": "ユーザー %1 は %2 で利用停止されました。",
+    "banned.text2": "この利用停止は %1 まで有効です。",
+    "banned.text3": "利用停止の理由:",
     "closing": "ありがとうございます！"
 }
