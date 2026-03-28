@@ -110,7 +110,7 @@
     "chat-deny-list": "以下のユーザーからのチャットメッセージを拒否",
     "chat-list-add-user": "ユーザーを追加",
     "digest-label": "ダイジェストを購読",
-    "digest-description": "設定したスケジュールに従って、このフォーラムのメール更新（新しい通知とトピック）を購読する",
+    "digest-description": "設定したスケジュールに従って、このフォーラムのメール更新（新しい通知とスレッド）を購読する",
     "digest-off": "オフ",
     "digest-daily": "デイリー",
     "digest-weekly": "ウィークリー",

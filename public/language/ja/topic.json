@@ -120,7 +120,7 @@
     "thread-tools.restore-confirm": "本当にこのスレッドを戻しますか？",
     "thread-tools.purge": "スレッドを切り離します",
     "thread-tools.purge-confirm": "本当にこのスレッドを切り離しますか？",
-    "thread-tools.merge-topics": "トピックを置き換える",
+    "thread-tools.merge-topics": "スレッドを置き換える",
     "thread-tools.merge": "スレッドをマージ",
     "topic-move-success": "このスレッドはまもなく「%1」に移動されます。元に戻すにはここをクリック。",
     "topic-move-multiple-success": "これらのスレッドはまもなく「%1」に移動されます。元に戻すにはここをクリック。",
