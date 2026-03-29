@@ -5,7 +5,7 @@
     "route": "ルート:",
     "tooltip": "ツールチップ:",
     "text": "テキスト:",
-    "text-class": " テキストのClass:<small>任意</small>",
+    "text-class": " テキストのクラス:<small>任意</small>",
     "class": "クラス: <small>任意</small>",
     "id": "ID: <small>任意</small>",
     "properties": "プロパティ:",
