@@ -5,7 +5,7 @@
     "mark-all-read": "すべて既読にする",
     "back-to-home": "%1へ戻る",
     "outgoing-link": "外部サイトへのリンク",
-    "outgoing-link-message": "これから%1を離れます",
+    "outgoing-link-message": "%1から離れようとしています",
     "continue-to": "%1へ行く",
     "return-to": "%1へ戻る",
     "new-notification": "新しい通知です",
