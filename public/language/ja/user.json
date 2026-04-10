@@ -222,7 +222,7 @@
     "consent.right-to-rectification-description": "提供した不正確なデータを変更・更新する権利があります。プロフィールは編集で更新でき、投稿内容もいつでも編集できます。できない場合は、このサイトの管理チームにお問い合わせください。",
     "consent.right-to-erasure": "あなたには消去する権利があります",
     "consent.right-to-erasure-description": "いつでも、アカウントを削除することでデータ収集および/または処理への同意を撤回できます。個人プロフィールは削除できますが、投稿したコンテンツは残ります。アカウント<strong>と</strong>コンテンツの両方を削除したい場合は、このウェブサイトの管理チームにお問い合わせください。",
-    "consent.right-to-data-portability": "あなたにはデータポータビリティの権利があります",
+    "consent.right-to-data-portability": "あなたはデータを移動する権利があります",
     "consent.right-to-data-portability-description": "あなたとアカウントに関する収集データの機械可読形式でのエクスポートを要求する権利があります。下のボタンから実行できます。",
     "consent.export-profile": "プロフィールをエクスポート（.json）",
     "consent.export-profile-success": "プロフィールをエクスポート中です。完了すると通知が届きます。",
