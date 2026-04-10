@@ -141,7 +141,7 @@
     "notifications": "通知",
     "upvote-notif-freq": "高評価通知の頻度",
     "upvote-notif-freq.all": "すべての高評価",
-    "upvote-notif-freq.first": "投稿ごとに最初の1回",
+    "upvote-notif-freq.first": "最初の投稿",
     "upvote-notif-freq.everyTen": "10件ごと",
     "upvote-notif-freq.threshold": "1、5、10、25、50、100、150、200…のとき",
     "upvote-notif-freq.logarithmic": "10、100、1000…のとき",
