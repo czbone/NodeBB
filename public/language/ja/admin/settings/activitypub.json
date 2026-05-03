@@ -1,6 +1,6 @@
 {
 	"intro-lead": "フェデレーションとは？",
-	"intro-body": "NodeBBは、それをサポートする他のNodeBBインスタンスと通信できます。これは<a href=\\\"https://activitypub.rocks/\\\">ActivityPub</a>と呼ばれるプロトコルで実現されます。有効にすると、NodeBBはActivityPubを使用する他のアプリやウェブサイト（Mastodon、Peertubeなど）とも通信できるようになります。",
+	"intro-body": "NodeBBは、それをサポートする他のNodeBBインスタンスと通信できます。これは<a href=\"https://activitypub.rocks/\">ActivityPub</a>と呼ばれるプロトコルで実現されます。有効にすると、NodeBBはActivityPubを使用する他のアプリやウェブサイト（Mastodon、Peertubeなど）とも通信できるようになります。",
 	"general": "一般",
 	"pruning": "保持期間",
 	"content-pruning": "リモートコンテンツを保持する日数",

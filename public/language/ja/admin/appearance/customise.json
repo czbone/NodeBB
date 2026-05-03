@@ -9,7 +9,7 @@
 	"custom-js.enable": "カスタムJavaScriptを有効にする",
 
 	"custom-header": "カスタムヘッダー",
-	"custom-header.description": "ここにカスタムHTML（例: メタタグなど）を入力すると、フォーラムのマークアップの<code>&lt;head&gt;</code>セクションに追加されます。スクリプトタグは許可されていますが、<a href=\\\"#custom-js\\\" data-toggle=\\\"tab\\\">カスタムJavaScript</a>タブが利用可能なため、推奨されません。",
+	"custom-header.description": "ここにカスタムHTML（例: メタタグなど）を入力すると、フォーラムのマークアップの<code>&lt;head&gt;</code>セクションに追加されます。スクリプトタグは許可されていますが、<a href=\"#custom-js\" data-toggle=\"tab\">カスタムJavaScript</a>タブが利用可能なため、推奨されません。",
 	"custom-header.enable": "カスタムヘッダーを有効にする",
 
 	"custom-css.livereload": "ライブリロードを有効にする",
