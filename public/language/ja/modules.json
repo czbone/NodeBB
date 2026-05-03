@@ -120,17 +120,14 @@
     "composer.discard-draft-confirm": "この下書きを破棄しますか？",
     "composer.remote-pid-editing": "リモート投稿を編集中",
     "composer.remote-pid-content-immutable": "リモート投稿の内容は編集できません。ただし、スレッドタイトルとタグは変更できます。",
-
     "bootbox.ok": "OK",
     "bootbox.cancel": "キャンセル",
     "bootbox.confirm": "確認",
     "bootbox.submit": "送信",
     "bootbox.send": "送信",
-
     "cover.dragging-title": "カバー写真の配置について",
     "cover.dragging-message": "カバー写真をドラッグで目的位置に移動し、\"保存\"をクリックします。",
     "cover.saved": "カバー写真と配置設定を保存しました。",
-
     "thumbs.modal.title": "スレッドのサムネイルを管理",
     "thumbs.modal.no-thumbs": "サムネイルが見つかりません。",
     "thumbs.modal.resize-note": "<strong>注意</strong>: このフォーラムはスレッドサムネイルを最大幅%1pxにリサイズするよう設定されています",

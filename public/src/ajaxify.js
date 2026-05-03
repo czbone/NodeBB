@@ -141,6 +141,12 @@ ajaxify.widgets = { render: render };
 			retry = true;
 
 			renderTemplate(url, data.templateToRender || data.template.name, data, callback);
+
+			// Refocus skip link after template rendering
+			setTimeout(() => {
+				// For now, just blur any focused element to prevent visual flash
+				document.activeElement.blur();
+			}, 0);
 		});
 
 		return true;
