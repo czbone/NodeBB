@@ -76,7 +76,7 @@
 	"privileges.copy-group-privileges-to-children": "このグループの権限をこのカテゴリの子にコピーします",
 	"privileges.copy-group-privileges-to-all-categories": "このグループの権限をすべてのカテゴリにコピーしてください",
 	"privileges.copy-group-privileges-from": "このグループの権限を別のカテゴリからコピーしてください",
-	"privileges.inherit": "<code>登録済ユーザー</ code>グループに特定の権限が与えられている場合、他のすべてのグループはたとえ明示的に定義/検査されていなくても<strong>暗黙の特権</ strong>があります。すべてのユーザーは<code>登録済ユーザー</code>のユーザーグループの一部で、この暗黙の特権が表示されるため、追加グループの特権を明示的に付与する必要はありません。",
+	"privileges.inherit": "<code>登録済みユーザー</code>グループに特定の権限が付与されている場合、他のすべてのグループにも、明示的に定義または確認されていなくても<strong>暗黙の権限</strong>が与えられます。すべてのユーザーは<code>登録済みユーザー</code>グループの一員であるため、この暗黙の権限が表示されており、追加グループに対して権限を明示的に付与する必要はありません。",
 	"privileges.copy-success": "権限をコピーしました!",
 
 	"analytics.back": "カテゴリ一覧に戻る",
