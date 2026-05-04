@@ -1,6 +1,6 @@
 {
 	"customise": "カスタマイズ",
-	"custom-css": "Custom CSS/SASS",
+	"custom-css": "カスタム CSS/SASS",
 	"custom-css.description": "ここに独自のCSS/SASS宣言を入力すると、他のすべてのスタイルの後に適用されます。",
 	"custom-css.enable": "カスタムCSS/SASSを有効にする",
 
