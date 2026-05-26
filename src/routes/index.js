@@ -132,13 +132,15 @@ module.exports = async function (app, middleware) {
 	});
 
 	router.all('(/+api|/+api/*?)', middleware.prepareAPI);
-	router.all(`(/+api/admin|/+api/admin/*?${mounts.admin !== 'admin' ? `|/+api/${mounts.admin}|/+api/${mounts.admin}/*?` : ''})`, middleware.authenticateRequest, middleware.ensureLoggedIn, middleware.admin.checkPrivileges);
-	router.all(`(/+admin|/+admin/*?${mounts.admin !== 'admin' ? `|/+${mounts.admin}|/+${mounts.admin}/*?` : ''})`, middleware.ensureLoggedIn, middleware.applyCSRF, middleware.admin.checkPrivileges);
-
-	app.use(middleware.stripLeadingSlashes);
 
 	// handle custom homepage routes
 	router.use('/', controllers.home.rewrite);
+
+	router.all(`(/+api/admin|/+api/admin/*?${mounts.admin !== 'admin' ? `|/+api/${mounts.admin}|/+api/${mounts.admin}/*?` : ''})`, middleware.authenticateRequest, middleware.ensureLoggedIn, middleware.admin.checkPrivileges);
+	router.all(`(/+admin|/+admin/*?${mounts.admin !== 'admin' ? `|/+${mounts.admin}|/+${mounts.admin}/*?` : ''})`, middleware.ensureLoggedIn, middleware.applyCSRF, middleware.admin.checkPrivileges);
+
+
+	app.use(middleware.stripLeadingSlashes);
 
 	// homepage handled by `action:homepage.get:[route]`
 	setupPageRoute(router, '/', [], controllers.home.pluginHook);
@@ -179,16 +181,10 @@ function addCoreRoutes(app, router, middleware, mounts) {
 	];
 	const staticOptions = {
 		maxAge: app.enabled('cache') ? 5184000000 : 0,
-		setHeaders: (res, filePath) => {
-			if (path.extname(filePath).toLowerCase() === '.xml') {
-				res.setHeader('X-Content-Type-Options', 'nosniff');
-				res.setHeader('Content-Disposition', `attachment; filename="${path.basename(filePath)}"`);
-			}
-		},
 	};
 
 	if (path.resolve(__dirname, '../../public/uploads') !== nconf.get('upload_path')) {
-		statics.unshift({ route: '/assets/uploads', path: nconf.get('upload_path') });
+		statics.unshift({ route: '/assets', path: path.join(nconf.get('upload_path'), '..') });
 	}
 
 	statics.forEach((obj) => {
