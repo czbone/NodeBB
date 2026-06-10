@@ -276,6 +276,35 @@ describe('Upload Controllers', () => {
 			assert.strictEqual(body.status.message, 'pngload_buffer: end of stream');
 		});
 
+		it('should fail to upload file if extension and mime type do not match', async () => {
+			const oldValue = meta.config.allowedFileExtensions;
+			meta.config.allowedFileExtensions = 'png,jpg,bmp,html';
+
+			try {
+				const uploadEndPoint = `${nconf.get('url')}/api/post/upload`;
+				const form = new FormData();
+				const uploadedFile = await fs.readFile(path.join(__dirname, '../test/files/503.html'));
+				const blob = new Blob([uploadedFile], { type: 'image/png' });
+
+				form.append('files[]', blob, '503.html');
+
+				const response = await fetch(uploadEndPoint, {
+					method: 'post',
+					body: form,
+					headers: {
+						'x-csrf-token': csrf_token,
+						cookie: await jar.getCookieString(uploadEndPoint),
+					},
+				});
+				const body = await response.json();
+
+				assert.strictEqual(response.status, 500);
+				assert.strictEqual(body?.status?.message, 'Invalid MIME type');
+			} finally {
+				meta.config.allowedFileExtensions = oldValue;
+			}
+		});
+
 		it('should fail if file is not an image', (done) => {
 			image.isFileTypeAllowed(path.join(__dirname, '../test/files/notanimage.png'), (err) => {
 				assert.strictEqual(err.message, 'Input file contains unsupported image format');
@@ -346,10 +375,10 @@ describe('Upload Controllers', () => {
 			});
 		});
 
-		it('should return empty string for invalid cover:url when user profile is loaded', async () => {
+		it('should return default cover for invalid cover:url when user profile is loaded', async () => {
 			await user.setUserField(1, 'cover:url', 'http://example.com/"><script>alert(1)</script>');
 			const { body: userData } = await helpers.request('get', '/api/user/admin');
-			assert.strictEqual(userData['cover:url'], '');
+			assert.strictEqual(userData['cover:url'], `${nconf.get('relative_path')}/assets/images/cover-default.png`);
 		});
 
 		it('should return empty string for invalid picture when user profile is loaded', async () => {
