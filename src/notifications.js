@@ -145,7 +145,9 @@ Notifications.getMultiple = async function (nids) {
 					notification.bodyShort = notification.bodyShort.replace(/([\s\S]*?),[\s\S]*?,([\s\S]*?)/, '$1, [[global:guest]], $2');
 				}
 			} else if (notification.image === 'brand:logo' || !notification.image) {
-				notification.image = meta.config['brand:logo'] || `${nconf.get('relative_path')}/assets/logo.png`;
+				notification.image = meta.config['brand:logo'] ?
+					utils.cacheBustedUrl(meta.config['brand:logo'], meta.config['brand:logo:updatedAt']) :
+					`${nconf.get('relative_path')}/assets/logo.png`;
 			}
 		}
 	});
@@ -195,6 +197,9 @@ Notifications.create = async function (data) {
 	}
 	if (data.bodyShort) {
 		data.bodyShort = utils.stripBidiControls(data.bodyShort);
+	}
+	if (data.bodyLong && tx.isTranslationKey(data.bodyLong)) {
+		data.txBodyLong = 1;
 	}
 	await Promise.all([
 		db.sortedSetAdd('notifications', now, data.nid),

@@ -25,6 +25,7 @@ module.exports = function (utils, Benchpress, tx, relative_path) {
 		generateGroupDisplayName,
 		membershipBtn,
 		spawnPrivilegeStates,
+		cacheBustedUrl,
 		localeToHTML,
 		renderDigestAvatar,
 		userAgentIcons,
@@ -56,9 +57,7 @@ module.exports = function (utils, Benchpress, tx, relative_path) {
 	function escape(str) {
 		// decoding HTML entities before escaping to prevent double escaping
 		// and allow translators to use HTML entities in translations
-		return tx.escape(
-			utils.escapeHTML(utils.decodeHTMLEntities(str))
-		);
+		return utils.escapeHTML(utils.decodeHTMLEntities(str));
 	}
 
 	function _tx(token, ...args) {
@@ -76,8 +75,9 @@ module.exports = function (utils, Benchpress, tx, relative_path) {
 			args = argsFromToken;
 		}
 		const [namespace, key] = txToken.split(':', 2);
-		if (!namespace || !key || !this?._i18n?.[namespace]?.[key]) {
-			return tx.escape(tx.fixDoubleEscaped(tx.escapeHTML(token)));
+		const translation = tx.resolveKey(this?._i18n?.[namespace], key);
+		if (!namespace || !key || !translation) {
+			return tx.fixDoubleEscaped(tx.escapeHTML(token));
 		}
 
 		const escapedArgs = args.map((arg) => {
@@ -89,12 +89,7 @@ module.exports = function (utils, Benchpress, tx, relative_path) {
 			return escapedArg;
 		});
 
-		const translation = this._i18n[namespace][key];
-		const result = tx.replaceArguments(translation, escapedArgs);
-		// prevents the translator.translate() in
-		// app.parseAndTraslate and page render from translating again
-		// can be removed once whole page translation is removed
-		return tx.escape(result);
+		return tx.replaceArguments(translation, escapedArgs);
 	}
 
 	function buildMetaTag(tag) {
@@ -149,29 +144,29 @@ module.exports = function (utils, Benchpress, tx, relative_path) {
 			.replace(/"/g, '&quot;');
 	}
 
+	const routePrivilegeMap = new Map([
+		['/users', 'view:users'],
+		['/tags', 'view:tags'],
+		['/groups', 'view:groups'],
+	]);
 	function displayMenuItem(data, index) {
 		const item = data.navigation[index];
 		if (!item) {
 			return false;
 		}
-
-		if (item.route.match('/users') && data.user && !data.user.privileges['view:users']) {
-			return false;
-		}
-
-		if (item.route.match('/tags') && data.user && !data.user.privileges['view:tags']) {
-			return false;
-		}
-
-		if (item.route.match('/groups') && data.user && !data.user.privileges['view:groups']) {
-			return false;
+		if (data.user) {
+			for (const [route, privilege] of routePrivilegeMap) {
+				if (item.route.startsWith(route) && !data.user.privileges[privilege]) {
+					return false;
+				}
+			}
 		}
 
 		return true;
 	}
 
-	function stripTags(str) {
-		return utils.stripHTMLTags(str);
+	function stripTags(str, ...args) {
+		return utils.stripHTMLTags(str, [...args]);
 	}
 
 	function buildCategoryIcon(category, size, rounded) {
@@ -180,7 +175,8 @@ module.exports = function (utils, Benchpress, tx, relative_path) {
 		}
 		const sizeEscaped = escape(size);
 		const fontSize = (parseInt(size, 10) / 2) || 16;
-		return `<span class="icon d-inline-flex justify-content-center align-items-center align-middle ${rounded}" style="${generateCategoryBackground(category)} width:${sizeEscaped}; height: ${sizeEscaped}; font-size: ${fontSize}px;">${category.icon ? `<i class="fa fa-fw ${escape(category.icon)}"></i>` : ''}</span>`;
+		const icon = category.icon ? `<i class="fa fa-fw ${escape(category.icon)}" style="line-height: ${sizeEscaped};"></i>` : '';
+		return `<span class="icon d-inline-flex justify-content-center align-items-center align-middle ${rounded}" style="${generateCategoryBackground(category)} width:${sizeEscaped}; height: ${sizeEscaped}; font-size: ${fontSize}px;">${icon}</span>`;
 	}
 
 	function buildCategoryLabel(category, tag = 'a', className = '') {
@@ -218,7 +214,11 @@ module.exports = function (utils, Benchpress, tx, relative_path) {
 		}
 
 		if (category.backgroundImage) {
-			style.push(`background-image: url(${category.backgroundImage})`);
+			const backgroundUrl = utils.cacheBustedUrl(
+				category.backgroundImage,
+				category['backgroundImage:updatedAt']
+			);
+			style.push(`background-image: url(${backgroundUrl})`);
 			if (category.imageClass) {
 				style.push(`background-size: ${category.imageClass}`);
 			}
@@ -286,7 +286,7 @@ module.exports = function (utils, Benchpress, tx, relative_path) {
 			const guestDisabled = ['groups:moderate', 'groups:posts:upvote', 'groups:posts:downvote', 'groups:local:login', 'groups:group:create'];
 			const spidersEnabled = ['groups:find', 'groups:read', 'groups:topics:read', 'groups:view:users', 'groups:view:tags', 'groups:view:groups'];
 			const globalModDisabled = ['groups:moderate'];
-			let fediverseEnabled = ['groups:view:users', 'groups:find', 'groups:read', 'groups:topics:read', 'groups:topics:create', 'groups:topics:reply', 'groups:topics:tag', 'groups:posts:edit', 'groups:posts:history', 'groups:posts:delete', 'groups:posts:upvote', 'groups:posts:downvote', 'groups:topics:delete'];
+			let fediverseEnabled = ['groups:view:users', 'groups:find', 'groups:read', 'groups:topics:read', 'groups:topics:create', 'groups:topics:reply', 'groups:topics:tag', 'groups:posts:edit', 'groups:posts:history', 'groups:posts:delete', 'groups:posts:upvote', 'groups:posts:downvote', 'groups:topics:delete', 'groups:chat', 'groups:chat:privileged'];
 			if (cid === -1) {
 				fediverseEnabled = fediverseEnabled.slice(3);
 			}
@@ -304,6 +304,10 @@ module.exports = function (utils, Benchpress, tx, relative_path) {
 				</td>
 			`;
 		}).join('');
+	}
+
+	function cacheBustedUrl(url, updatedAt) {
+		return escape(utils.cacheBustedUrl(url, updatedAt));
 	}
 
 	function localeToHTML(locale, fallback) {
@@ -459,7 +463,7 @@ module.exports = function (utils, Benchpress, tx, relative_path) {
 	}
 
 	function txUsernameOrDisplayname(user, field) {
-		const name = String(user[field] || '');
+		const name = String(user?.[field] || '');
 		const shouldTranslate = user?.uid === 0 && (name === '[[global:former-user]]' || name === '[[global:guest]]');
 		return shouldTranslate ? _tx.call(this, name) : escape(name);
 	}
